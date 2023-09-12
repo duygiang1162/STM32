@@ -48,8 +48,11 @@ Button_Typdef button1;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-
 /* USER CODE BEGIN PFP */
+volatile uint32_t time_led1=0;
+volatile uint32_t time_led2=0;
+volatile uint32_t set_time_led1=200;
+volatile uint32_t set_time_led2=500;
 
 /* USER CODE END PFP */
 
@@ -61,14 +64,16 @@ void btn_pressing_callback(Button_Typdef *ButtonX)
 {
   if(ButtonX == &button1)
   {
-    HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_15);
+    set_time_led1=500;
+    set_time_led2=200;
   }
 }
 void btn_press_timeout_callback(Button_Typdef *ButtonX)
 {
   if(ButtonX == &button1)
   {
-    HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+    set_time_led1=100;
+    set_time_led2=100;
   }
 }
 /* USER CODE END 0 */
@@ -113,6 +118,16 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     button_handle(&button1);
+    if(HAL_GetTick()-time_led1 >= set_time_led1)
+    {
+      HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_15);
+      time_led1=HAL_GetTick();
+    }
+    if(HAL_GetTick()-time_led2 >= set_time_led2)
+    {
+      HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+      time_led2=HAL_GetTick();
+    }
     // HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_15);
     // HAL_Delay(500);
   }

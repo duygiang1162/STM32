@@ -1,0 +1,82 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "./build/${workspaceRootFolderName}.elf",
+            "cwd": "${workspaceRoot}",
+            "servertype": "openocd",
+            "device": "STM32F103C8T6",
+            "configFiles": [
+                "interface/stlink-v2.cfg",
+                "target/stm32f1x.cfg"
+            ],
+            "svdFile": "./STM32F103.svd"
+        }
+    ]
+}
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "GDB Launch",
+//             "type": "cppdbg",
+//             "request": "launch",
+//             "program": "${workspaceFolder}/build/${workspaceFolderBasename}.elf",
+//             "args": [],
+//             "stopAtEntry": true,
+//             "cwd": "${workspaceRoot}",
+//             "environment": [],
+//             "externalConsole": false,
+//             "debugServerArgs": "-f interface/stlink.cfg -c \"set CPUTAPID 0x2ba01477\" -f target/stm32f1x.cfg -c init -c \"reset init\"",
+//             "filterStderr": true,
+//             "filterStdout": false,
+//             "serverStarted": "target halted due to debug-request, current mode: Thread",
+//             "MIMode": "gdb",
+//             //"preLaunchTask": "make all",
+//             "setupCommands": [
+//                 {
+//                     "text": "-target-select remote localhost:3333",
+//                     "description": "connect to target",
+//                     "ignoreFailures": false
+//                 },
+//                 {
+//                     "text": "-file-exec-and-symbols ${workspaceFolder}/build/${workspaceFolderBasename}.elf",
+//                     "description": "load file",
+//                     "ignoreFailures": false
+//                 },
+//                 {
+//                     "text": "-interpreter-exec console \"monitor endian little\"",
+//                     "ignoreFailures": false
+//                 },
+//                 {
+//                     "text": "-interpreter-exec console \"monitor reset\"",
+//                     "ignoreFailures": false
+//                 },
+//                 {
+//                     "text": "-interpreter-exec console \"monitor halt\"",
+//                     "ignoreFailures": false
+//                 },
+//                 {
+//                     "text": "-interpreter-exec console \"monitor arm semihosting enable\"",
+//                     "ignoreFailures": false
+//                 },
+//                 {
+//                     "text": "-target-download",
+//                     "description": "flash target",
+//                     "ignoreFailures": false
+//                 }
+//             ],
+//             "linux": {
+//                 "MIMode": "gdb",
+//                 "MIDebuggerPath": "gdb-multiarch",
+//                 "debugServerPath": "openocd"
+//             }
+//         }
+//     ]
+// }

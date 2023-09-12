@@ -1,0 +1,7 @@
+
+{
+    "cortex-debug.gdbPath": "gdb-multiarch", 
+    "makefile.extensionOutputFolder": "./.vscode",
+    "cortex-debug.armToolchainPath": "/usr/local/bin",
+    "cortex-debug.openocdPath": "/usr/local/bin/openocd"
+}

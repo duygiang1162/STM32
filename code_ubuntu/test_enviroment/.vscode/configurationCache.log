@@ -1,0 +1,1 @@
+{"buildTargets":["all","build","build/VSCODE_STM32.elf","clean","flash","rf"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

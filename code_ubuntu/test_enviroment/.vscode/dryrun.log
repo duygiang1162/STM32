@@ -1,0 +1,27 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/ruyzang/VSCODE_STM32'
+mkdir build		
+make: Leaving directory '/home/ruyzang/VSCODE_STM32'
+ 
+make: *** No rule to make target 'build/main.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_it.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_msp.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_gpio_ex.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_adc.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_adc_ex.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_rcc.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_rcc_ex.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_gpio.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_dma.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_cortex.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_pwr.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_flash.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_flash_ex.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_exti.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_tim.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_tim_ex.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/stm32f1xx_hal_uart.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/system_stm32f1xx.o', needed by 'build/VSCODE_STM32.elf'.
+make: *** No rule to make target 'build/startup_stm32f103xb.o', needed by 'build/VSCODE_STM32.elf'.
+

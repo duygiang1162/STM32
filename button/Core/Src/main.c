@@ -77,8 +77,11 @@ void btn_pressing_callback(Button_Typdef *ButtonX)
 }
 void btn_press_timeout_callback(Button_Typdef *ButtonX)
 {
-  set_time_led1=1000;
-  set_time_led2=1000;
+  if(ButtonX == &button2)
+  {
+    set_time_led1=1000;
+    set_time_led2=1000;
+  }
 }
 /* USER CODE END 0 */
 

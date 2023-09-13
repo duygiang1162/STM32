@@ -32,6 +32,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 Button_Typdef button1;
+Button_Typdef button2;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,6 +54,7 @@ volatile uint32_t time_led1=0;
 volatile uint32_t time_led2=0;
 volatile uint32_t set_time_led1=200;
 volatile uint32_t set_time_led2=500;
+volatile uint8_t count_blink=0;
 
 /* USER CODE END PFP */
 
@@ -67,14 +69,16 @@ void btn_pressing_callback(Button_Typdef *ButtonX)
     set_time_led1=500;
     set_time_led2=200;
   }
-}
-void btn_press_timeout_callback(Button_Typdef *ButtonX)
-{
-  if(ButtonX == &button1)
+  if(ButtonX == &button2)
   {
     set_time_led1=100;
     set_time_led2=100;
   }
+}
+void btn_press_timeout_callback(Button_Typdef *ButtonX)
+{
+  set_time_led1=1000;
+  set_time_led2=1000;
 }
 /* USER CODE END 0 */
 
@@ -108,6 +112,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   button_init(&button1,GPIOA,GPIO_PIN_1);
+  button_init(&button2,GPIOA,GPIO_PIN_0);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -118,6 +123,8 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     button_handle(&button1);
+    button_handle(&button2);
+
     if(HAL_GetTick()-time_led1 >= set_time_led1)
     {
       HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_15);
@@ -125,7 +132,7 @@ int main(void)
     }
     if(HAL_GetTick()-time_led2 >= set_time_led2)
     {
-      HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+      HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_15);
       time_led2=HAL_GetTick();
     }
     // HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_15);
@@ -185,9 +192,16 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13|GPIO_PIN_15, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PC13 PC15 */
   GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_15;
@@ -196,11 +210,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PA1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  /*Configure GPIO pins : PA0 PA1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PB15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_15;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

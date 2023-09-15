@@ -1,0 +1,63 @@
+// {
+//     "configurations": [
+//         {
+//             "name": "Win32",
+//             "includePath": [
+//                 "${workspaceFolder}/**"
+//             ],
+//             "defines": [
+//                 "_DEBUG",
+//                 "UNICODE",
+//                 "_UNICODE",
+//                 "USE_HAL_DRIVER",
+//                 "STM32F103C8T6"
+
+//             ],
+//             "compilerPath": "E:\\gcc-arm\\10 2021.10\\bin\\arm-none-eabi-gcc.exe",
+//             "compilerArgs": [
+//                 "-mcpu=cortex-mo",
+//                 "-mthumb"
+//             ],
+//             "cStandard": "c11",
+//             "cppStandard": "c++17",
+//             "intelliSenseMode": "gcc-arm"
+//         }
+//     ],
+//     "version": 4
+// }
+
+{
+    "configurations": [
+        {
+            "name": "STM32 F1",
+            "includePath": [
+                "${workspaceRoot}",
+                "${workspaceRoot}/Core/Inc",
+                "${workspaceRoot}/Drivers/STM32F1xx_HAL_Driver/Inc",
+                "${workspaceRoot}/Drivers/CMSIS/Include",
+                "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "E:/gcc-arm/10 2021.10/arm-none-eabi/include/",
+                "E:/gcc-arm/10 2021.10/arm-none-eabi/include//c++/10.3.1",
+                "E:/gcc-arm/10 2021.10/lib/gcc/arm-none-eabi/10.3.1/include",
+                "E:/gcc-arm/10 2021.10/lib/gcc/arm-none-eabi/10.3.1/include-fixed",
+                "E:/gcc-arm/10 2021.10/arm-none-eabi/include//machine",
+                "E:/gcc-arm/10 2021.10/arm-none-eabi/include//newlib-nano",
+                "E:/gcc-arm/10 2021.10/arm-none-eabi/include//sys",
+                "${workspaceFolder}"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USE_HAL_DRIVER",
+                "STM32F103xB"
+            ],
+            "compilerPath": "E:\\gcc-arm\\10 2021.10\\bin\\arm-none-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "gcc-arm",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}
